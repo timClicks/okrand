@@ -1,0 +1,69 @@
+﻿okrand - a MARC21 to RDF converter 
+
+about
+=====
+
+software
+--------
+
+This tool was originally used to convert the 
+National Library of New Zealand's MARC21 
+catalogue to RDF. It should be sufficiently 
+generic to do the task for any MARC21 file.
+
+The conversion process loses some data. If 
+you know of an RDF vocabularly that matches 
+MARC21 perfectly, please contact the author.
+
+Once converted, your 
+
+
+name
+----
+
+Marc Okrand invented Klingon. MARC21 seems 
+like Klingon for computers.
+
+
+usage
+=====
+
+No command line usage yet. Open up a Python
+interpreter and run the main function.
+
+
+By example
+----------
+
+
+1.  You want to parse catalog.mrc in memory:
+
+    >>> import okrand     
+    >>> graph = okrand.main('catalog.mrc')
+
+2.  You want to parse a compressed catalog.mrc.gz
+    file and store the graph on disk so that it 
+    can be used by RDFlib:
+
+    >>> okrand.main('catalog.mrc', 
+    ...     store_type='Sleepycat', 
+    ...     store_id='my_catalog',
+    ...     graph_id='my_catalog',
+    ...     gzipped=True)
+
+    Note: store_id and graph_id are arbitrary, 
+    but are strongly recommended for 
+    disk-based stores. 
+
+
+If you would like to serialize the graph, call 
+you can do so from the resulting object:
+
+    >>> graph.serialize('mycatalog.n3', 
+    ...     format='n3')
+
+
+licence
+======
+
+APGL v3. 
