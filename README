@@ -24,13 +24,27 @@ name
 Marc Okrand invented Klingon. MARC21 seems 
 like Klingon for computers.
 
+dependencies
+============
+ 
+okrand depends on two libraries to do its
+heavy lifting:
+
+  RDFLib <http://code.google.com/p/rdflib>
+  pymarc <https://github.com/edsu/pymarc>
+
+Both can be installed via the command line
+with pip or easy_install:
+
+   $ pip install rdflib pymarc
+   $ easy_install rdflib pymarc
+
 
 usage
 =====
 
 No command line usage yet. Open up a Python
 interpreter and run the main function.
-
 
 By example
 ----------
@@ -41,9 +55,9 @@ By example
     >>> import okrand     
     >>> graph = okrand.main('catalog.mrc')
 
-2.  You want to parse a compressed catalog.mrc.gz
-    file and store the graph on disk so that it 
-    can be used by RDFlib:
+2.  You want to parse a compressed 
+    catalog.mrc.gz file and store the graph
+    on disk so that it can be used by RDFlib:
 
     >>> okrand.main('catalog.mrc', 
     ...     store_type='Sleepycat', 
