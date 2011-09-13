@@ -1,7 +1,10 @@
 #! /usr/env/bin python
 
 from rdflib import BNode, Namespace, RDF, Literal
-from rdflib.graph import ConjunctiveGraph as Graph
+try:
+    from rdflib.graph import ConjunctiveGraph as Graph
+except ImportError:
+    from rdflib.Graph import ConjunctiveGraph as Graph #RDFlib < 3.0
 from rdflib.store import Store, VALID_STORE, CORRUPTED_STORE, NO_STORE, UNKNOWN
 
 from pymarc import MARCReader
